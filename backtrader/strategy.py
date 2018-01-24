@@ -577,16 +577,16 @@ class Strategy(with_metaclass(MetaStrategy, StrategyBase)):
         if qorders:
             return  # cash is notified on a regular basis
 
-        cash = self.broker.getcash()
-        value = self.broker.getvalue()
-        fundvalue = self.broker.fundvalue
-        fundshares = self.broker.fundshares
+        # cash = self.broker.getcash()
+        # value = self.broker.getvalue()
+        # fundvalue = self.broker.fundvalue
+        # fundshares = self.broker.fundshares
 
-        self.notify_cashvalue(cash, value)
-        self.notify_fund(cash, value, fundvalue, fundshares)
-        for analyzer in itertools.chain(self.analyzers, self._slave_analyzers):
-            analyzer._notify_cashvalue(cash, value)
-            analyzer._notify_fund(cash, value, fundvalue, fundshares)
+        # self.notify_cashvalue(cash, value)
+        # self.notify_fund(cash, value, fundvalue, fundshares)
+        # for analyzer in itertools.chain(self.analyzers, self._slave_analyzers):
+            # analyzer._notify_cashvalue(cash, value)
+            # analyzer._notify_fund(cash, value, fundvalue, fundshares)
 
     def add_timer(self, when,
                   offset=datetime.timedelta(), repeat=datetime.timedelta(),
