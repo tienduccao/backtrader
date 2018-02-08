@@ -77,6 +77,7 @@ class CCXTBroker(BrokerBase):
 
     def _submit(self, owner, data, exectype, side, amount, price, params):
         order_type = self.order_types.get(exectype)
+        params = {}
         _order = self.store.create_order(symbol=data.symbol, order_type=order_type, side=side,
                                          amount=amount, price=price, params=params)
         order = CCXTOrder(owner, data, _order)
