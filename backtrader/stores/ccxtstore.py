@@ -28,6 +28,7 @@ import ccxt
 from ccxt.base.errors import NetworkError
 
 import backtrader as bt
+from backtrader import Position
 
 
 class CCXTStore(object):
@@ -101,7 +102,7 @@ class CCXTStore(object):
 
     @retry
     def getposition(self, currency):
-        return self.getvalue(currency)
+        return Position(size=self.getvalue(currency))
 
     @retry
     def create_order(self, symbol, order_type, side, amount, price, params):
